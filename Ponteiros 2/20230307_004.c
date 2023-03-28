@@ -1,32 +1,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int main(){
+    int vet[8];
+    int *pvet = &vet[0];
 
-int main () {
-    int inteiro = 10;
-    float real = 4.1;
-    char caractere = 'e';
+    printf("Digite 8 numeros inteiros:\n");
+    for (; pvet <= &vet[7]; pvet++){
+        scanf("%d", pvet);
+    }
 
-    int *pnteiro = &inteiro;
-    float *preal = &real;
-    char *pcarac = &caractere;
+    printf("O dobro de cada elemento:\n");
+    for (pvet = &vet[0]; pvet <= &vet[7]; pvet++){
+        if(pvet == &vet[7]) {
+            printf("%d\n", *pvet * 2);
+        }
+        else{
+            printf("%d, ", *pvet * 2);
+        }
+    }
 
-    printf("Valores antes da alteracao: %d\n", inteiro);
-    printf("Valores antes da alteracao: %.2f\n", real);
-    printf("Valores antes da alteracao: %c\n", caractere);
-
-    *pnteiro = 7;
-    *preal = 10.0;
-    *pcarac = 'i';
-
-    printf("Valores depois da alteracao: %d\n", inteiro);
-    printf("Valores depois da alteracao: %.2f\n", real);
-    printf("Valores depois da alteracao: %c\n", caractere);
-
-
-
-
+    printf("Endereco dos pares:\n");
+    for (pvet = &vet[0]; pvet <= &vet[7]; pvet++){
+        if(pvet == &vet[7]){
+            if(*pvet%2 == 0){
+                printf("%d\n", pvet);
+            }
+        }
+        else{
+            if(*pvet%2 == 0){
+                printf("%d, ", pvet);
+            }
+        }
+    }
 
     return 0;
 }
-
