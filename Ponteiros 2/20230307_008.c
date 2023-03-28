@@ -1,32 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
-int main () {
-    int inteiro = 10;
-    float real = 4.1;
-    char caractere = 'e';
-
-    int *pnteiro = &inteiro;
-    float *preal = &real;
-    char *pcarac = &caractere;
-
-    printf("Valores antes da alteracao: %d\n", inteiro);
-    printf("Valores antes da alteracao: %.2f\n", real);
-    printf("Valores antes da alteracao: %c\n", caractere);
-
-    *pnteiro = 7;
-    *preal = 10.0;
-    *pcarac = 'i';
-
-    printf("Valores depois da alteracao: %d\n", inteiro);
-    printf("Valores depois da alteracao: %.2f\n", real);
-    printf("Valores depois da alteracao: %c\n", caractere);
-
-
-
-
-
-    return 0;
+void troca(float *a, float *b){
+    float aux = *a;
+    *a = *b;
+    *b = aux;
 }
+
+int main(){
+    float a = 5.8;
+    float b = 7.8;
+
+    printf("Valores antes da troca:\n");
+    printf("a: %.2f\n", a);
+    printf("b: %.2f\n", b);
+
+
+    troca(&a, &b);
+
+    printf("Valores depois da troca:\n");
+    printf("a: %.2f\n", a);
+    printf("b: %.2f\n", b);
+
+}
+
 
