@@ -1,31 +1,32 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void min_max(int vetor[], int *min, int *max, int tam){
+    tam = tam/sizeof(int);
+    *min = vetor[0];
+    *max = vetor[0];
+    for(int *pvet = vetor; pvet <= &vetor[tam - 1]; pvet++){
+        if(*pvet < *min){
+            *min = *pvet;
+        }
 
-int main () {
-    int inteiro = 10;
-    float real = 4.1;
-    char caractere = 'e';
+        else{
+            if(*pvet > *max){
+                *max = *pvet;
+            }
+        }
+    }
+}
 
-    int *pnteiro = &inteiro;
-    float *preal = &real;
-    char *pcarac = &caractere;
+int main(){
 
-    printf("Valores antes da alteracao: %d\n", inteiro);
-    printf("Valores antes da alteracao: %.2f\n", real);
-    printf("Valores antes da alteracao: %c\n", caractere);
+    int vetor[] = {25, 65, 13, 7, 1, 9, -5};
+    int min, max;
 
-    *pnteiro = 7;
-    *preal = 10.0;
-    *pcarac = 'i';
+    min_max(vetor, &min, &max, sizeof(vetor));
 
-    printf("Valores depois da alteracao: %d\n", inteiro);
-    printf("Valores depois da alteracao: %.2f\n", real);
-    printf("Valores depois da alteracao: %c\n", caractere);
-
-
-
-
+    printf("Valor maximo: %d\n", max);
+    printf("Valor minimo: %d\n", min);
 
     return 0;
 }
