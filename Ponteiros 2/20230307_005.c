@@ -1,32 +1,57 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int ordenacao(int *valor1, int *valor2, int *valor3) {
+    int n;
+    int aux = 0;
 
-int main () {
-    int inteiro = 10;
-    float real = 4.1;
-    char caractere = 'e';
+    if (*valor1 > *valor2) {
+        n = *valor1;
+        *valor1 = *valor2;
+        *valor2 = n;
+        aux = 1;
+    }
+    if (*valor1 > *valor3) {
+        n = *valor1;
+        *valor1 = *valor3;
+        *valor3 = n;
+        aux = 1;
+    }
+    if (*valor2 > *valor3) {
+        n = *valor2;
+        *valor2 = *valor3;
+        *valor3 = n;
+        aux = 1;
+    }
 
-    int *pnteiro = &inteiro;
-    float *preal = &real;
-    char *pcarac = &caractere;
+    if (*valor1 == *valor2 && *valor1 == *valor3) {
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
 
-    printf("Valores antes da alteracao: %d\n", inteiro);
-    printf("Valores antes da alteracao: %.2f\n", real);
-    printf("Valores antes da alteracao: %c\n", caractere);
+int main() {
+    int valor1, valor2, valor3;
 
-    *pnteiro = 7;
-    *preal = 10.0;
-    *pcarac = 'i';
+    printf("Digite um numero inteiro: \n");
+    scanf("%d", &valor1);
 
-    printf("Valores depois da alteracao: %d\n", inteiro);
-    printf("Valores depois da alteracao: %.2f\n", real);
-    printf("Valores depois da alteracao: %c\n", caractere);
+    printf("Digite um numero inteiro: \n");
+    scanf("%d", &valor2);
 
+    printf("Digite um numero inteiro: \n");
+    scanf("%d", &valor3);
 
+    int igual = ordenacao(&valor1, &valor2, &valor3);
 
+    printf("Valores ordenados: %d %d %d\n", valor1, valor2, valor3);
+
+    if (igual) {
+        printf("Os valores sao iguais.\n");
+    }
 
 
     return 0;
 }
-
